@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+</head>
+<body>
+    <h1>Word Counter</h1>
+    <form method="post" action="/">
+        <label for="input_text">Enter text:</label>
+        <textarea name="input_text" id="input_text" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Count Words</button>
+    </form>
+
+    {% if word_count %}
+        <h2>Result</h2>
+        <p>Input Text:</p>
+        <p>{{ input_text }}</p>
+        <p>Word Count:</p>
+        <ul>
+            {% for word, count in word_count.items() %}
+                <li>{{ word }}: {{ count }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
